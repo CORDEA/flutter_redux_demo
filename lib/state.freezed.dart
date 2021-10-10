@@ -17,8 +17,15 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call() {
-    return const _AppState();
+  _AppState call(
+      {required String url,
+      required Duration duration,
+      required bool inProgress}) {
+    return _AppState(
+      url: url,
+      duration: duration,
+      inProgress: inProgress,
+    );
   }
 }
 
@@ -26,12 +33,21 @@ class _$AppStateTearOff {
 const $AppState = _$AppStateTearOff();
 
 /// @nodoc
-mixin _$AppState {}
+mixin _$AppState {
+  String get url => throw _privateConstructorUsedError;
+  Duration get duration => throw _privateConstructorUsedError;
+  bool get inProgress => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AppStateCopyWith<AppState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
+  $Res call({String url, Duration duration, bool inProgress});
 }
 
 /// @nodoc
@@ -41,12 +57,36 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   final AppState _value;
   // ignore: unused_field
   final $Res Function(AppState) _then;
+
+  @override
+  $Res call({
+    Object? url = freezed,
+    Object? duration = freezed,
+    Object? inProgress = freezed,
+  }) {
+    return _then(_value.copyWith(
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      duration: duration == freezed
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      inProgress: inProgress == freezed
+          ? _value.inProgress
+          : inProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$AppStateCopyWith<$Res> {
+abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
+  @override
+  $Res call({String url, Duration duration, bool inProgress});
 }
 
 /// @nodoc
@@ -57,28 +97,83 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
   @override
   _AppState get _value => super._value as _AppState;
+
+  @override
+  $Res call({
+    Object? url = freezed,
+    Object? duration = freezed,
+    Object? inProgress = freezed,
+  }) {
+    return _then(_AppState(
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      duration: duration == freezed
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      inProgress: inProgress == freezed
+          ? _value.inProgress
+          : inProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState();
+  const _$_AppState(
+      {required this.url, required this.duration, required this.inProgress});
+
+  @override
+  final String url;
+  @override
+  final Duration duration;
+  @override
+  final bool inProgress;
 
   @override
   String toString() {
-    return 'AppState()';
+    return 'AppState(url: $url, duration: $duration, inProgress: $inProgress)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AppState);
+        (other.runtimeType == runtimeType &&
+            other is _AppState &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
+            (identical(other.inProgress, inProgress) ||
+                other.inProgress == inProgress));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, url, duration, inProgress);
+
+  @JsonKey(ignore: true)
+  @override
+  _$AppStateCopyWith<_AppState> get copyWith =>
+      __$AppStateCopyWithImpl<_AppState>(this, _$identity);
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState() = _$_AppState;
+  const factory _AppState(
+      {required String url,
+      required Duration duration,
+      required bool inProgress}) = _$_AppState;
+
+  @override
+  String get url;
+  @override
+  Duration get duration;
+  @override
+  bool get inProgress;
+  @override
+  @JsonKey(ignore: true)
+  _$AppStateCopyWith<_AppState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
