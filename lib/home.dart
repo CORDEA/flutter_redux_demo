@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
+
+import 'state.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -9,7 +13,19 @@ class Home extends StatelessWidget {
       appBar: AppBar(title: const Text('Home')),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: _Body(),
+      ),
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StoreConnector<AppState, _HomeViewModel>(
+      converter: (store) => _HomeViewModel(store),
+      builder: (context, viewModel) {
+        return Column(
           children: [
             const TextField(
               decoration: InputDecoration(
@@ -34,8 +50,20 @@ class Home extends StatelessWidget {
               ],
             ),
           ],
-        ),
-      ),
+        );
+      },
     );
   }
+}
+
+class _HomeViewModel {
+  _HomeViewModel(this._store);
+
+  final Store<AppState> _store;
+
+  void onDurationChanged() {}
+
+  void onStartTapped() {}
+
+  void onStopTapped() {}
 }
