@@ -636,8 +636,10 @@ abstract class _OnStopTapped implements AppAction {
 class _$PingActionTearOff {
   const _$PingActionTearOff();
 
-  _OnFetched onFetched() {
-    return const _OnFetched();
+  _OnFetched onFetched(Response response) {
+    return _OnFetched(
+      response,
+    );
   }
 }
 
@@ -646,19 +648,21 @@ const $PingAction = _$PingActionTearOff();
 
 /// @nodoc
 mixin _$PingAction {
+  Response get response => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onFetched,
+    required TResult Function(Response response) onFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? onFetched,
+    TResult Function(Response response)? onFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onFetched,
+    TResult Function(Response response)? onFetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -678,6 +682,10 @@ mixin _$PingAction {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PingActionCopyWith<PingAction> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -685,6 +693,7 @@ abstract class $PingActionCopyWith<$Res> {
   factory $PingActionCopyWith(
           PingAction value, $Res Function(PingAction) then) =
       _$PingActionCopyWithImpl<$Res>;
+  $Res call({Response response});
 }
 
 /// @nodoc
@@ -694,13 +703,27 @@ class _$PingActionCopyWithImpl<$Res> implements $PingActionCopyWith<$Res> {
   final PingAction _value;
   // ignore: unused_field
   final $Res Function(PingAction) _then;
+
+  @override
+  $Res call({
+    Object? response = freezed,
+  }) {
+    return _then(_value.copyWith(
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as Response,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$OnFetchedCopyWith<$Res> {
+abstract class _$OnFetchedCopyWith<$Res> implements $PingActionCopyWith<$Res> {
   factory _$OnFetchedCopyWith(
           _OnFetched value, $Res Function(_OnFetched) then) =
       __$OnFetchedCopyWithImpl<$Res>;
+  @override
+  $Res call({Response response});
 }
 
 /// @nodoc
@@ -711,51 +734,74 @@ class __$OnFetchedCopyWithImpl<$Res> extends _$PingActionCopyWithImpl<$Res>
 
   @override
   _OnFetched get _value => super._value as _OnFetched;
+
+  @override
+  $Res call({
+    Object? response = freezed,
+  }) {
+    return _then(_OnFetched(
+      response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as Response,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_OnFetched implements _OnFetched {
-  const _$_OnFetched();
+  const _$_OnFetched(this.response);
+
+  @override
+  final Response response;
 
   @override
   String toString() {
-    return 'PingAction.onFetched()';
+    return 'PingAction.onFetched(response: $response)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _OnFetched);
+        (other.runtimeType == runtimeType &&
+            other is _OnFetched &&
+            (identical(other.response, response) ||
+                other.response == response));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, response);
+
+  @JsonKey(ignore: true)
+  @override
+  _$OnFetchedCopyWith<_OnFetched> get copyWith =>
+      __$OnFetchedCopyWithImpl<_OnFetched>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onFetched,
+    required TResult Function(Response response) onFetched,
   }) {
-    return onFetched();
+    return onFetched(response);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? onFetched,
+    TResult Function(Response response)? onFetched,
   }) {
-    return onFetched?.call();
+    return onFetched?.call(response);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onFetched,
+    TResult Function(Response response)? onFetched,
     required TResult orElse(),
   }) {
     if (onFetched != null) {
-      return onFetched();
+      return onFetched(response);
     }
     return orElse();
   }
@@ -790,5 +836,12 @@ class _$_OnFetched implements _OnFetched {
 }
 
 abstract class _OnFetched implements PingAction {
-  const factory _OnFetched() = _$_OnFetched;
+  const factory _OnFetched(Response response) = _$_OnFetched;
+
+  @override
+  Response get response;
+  @override
+  @JsonKey(ignore: true)
+  _$OnFetchedCopyWith<_OnFetched> get copyWith =>
+      throw _privateConstructorUsedError;
 }

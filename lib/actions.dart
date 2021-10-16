@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:http/http.dart';
 
 part 'actions.freezed.dart';
 
@@ -16,5 +17,5 @@ class AppAction with _$AppAction {
 
 @freezed
 class PingAction with _$PingAction {
-  const factory PingAction.onFetched() = _OnFetched;
+  const factory PingAction.onFetched(Response response) = _OnFetched;
 }

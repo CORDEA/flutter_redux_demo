@@ -16,7 +16,7 @@ final _appReducer = TypedReducer<AppState, AppAction>((state, action) {
 
 final _pingReducer = TypedReducer<AppState, PingAction>((state, action) {
   return action.when(
-    onFetched: () {
+    onFetched: (response) {
       // TODO
       return state;
     },
