@@ -5,8 +5,8 @@ part 'state.freezed.dart';
 @freezed
 class AppState with _$AppState {
   const factory AppState({
-    required String url,
-    required Duration duration,
-    required bool inProgress,
+    @Default('') String url,
+    @Default(Duration.zero) Duration duration,
+    @Default(false) bool inProgress,
   }) = _AppState;
 }

@@ -18,9 +18,9 @@ class _$AppStateTearOff {
   const _$AppStateTearOff();
 
   _AppState call(
-      {required String url,
-      required Duration duration,
-      required bool inProgress}) {
+      {String url = '',
+      Duration duration = Duration.zero,
+      bool inProgress = false}) {
     return _AppState(
       url: url,
       duration: duration,
@@ -125,12 +125,15 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 class _$_AppState implements _AppState {
   const _$_AppState(
-      {required this.url, required this.duration, required this.inProgress});
+      {this.url = '', this.duration = Duration.zero, this.inProgress = false});
 
+  @JsonKey(defaultValue: '')
   @override
   final String url;
+  @JsonKey(defaultValue: Duration.zero)
   @override
   final Duration duration;
+  @JsonKey(defaultValue: false)
   @override
   final bool inProgress;
 
@@ -161,10 +164,8 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState(
-      {required String url,
-      required Duration duration,
-      required bool inProgress}) = _$_AppState;
+  const factory _AppState({String url, Duration duration, bool inProgress}) =
+      _$_AppState;
 
   @override
   String get url;
