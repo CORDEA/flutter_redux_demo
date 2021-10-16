@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'actions.freezed.dart';
 
 @freezed
-class AppAction {
+class AppAction with _$AppAction {
   const factory AppAction.onUrlChanged({required String url}) = _OnUrlChanged;
 
   const factory AppAction.onDurationChanged(Duration duration) =
