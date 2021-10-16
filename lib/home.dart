@@ -27,24 +27,28 @@ class _Body extends StatelessWidget {
       builder: (context, viewModel) {
         return Column(
           children: [
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text('Url'),
               ),
+              onChanged: (v) => viewModel.onUrlChanged(v),
             ),
             const SizedBox(height: 16),
-            Slider.adaptive(value: 0, onChanged: (_) {}),
+            Slider.adaptive(
+              value: 0,
+              onChanged: (v) => viewModel.onDurationChanged(v),
+            ),
             const SizedBox(height: 16),
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => viewModel.onStartTapped(),
                   child: const Text('Start'),
                 ),
                 const SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => viewModel.onStopTapped(),
                   child: const Text('Stop'),
                 ),
               ],
@@ -61,7 +65,9 @@ class _HomeViewModel {
 
   final Store<AppState> _store;
 
-  void onDurationChanged() {}
+  void onUrlChanged(String url) {}
+
+  void onDurationChanged(double value) {}
 
   void onStartTapped() {}
 
