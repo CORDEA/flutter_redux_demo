@@ -3,14 +3,15 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 import 'home.dart';
+import 'middleware.dart';
 import 'reducer.dart';
 import 'state.dart';
 
 void main() {
   final store = Store<AppState>(
     reducer,
-    initialState: AppState(),
-    middleware: [],
+    initialState: const AppState(),
+    middleware: [PingMiddleware()],
   );
   runApp(MyApp(store: store));
 }
