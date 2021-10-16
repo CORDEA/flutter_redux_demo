@@ -631,3 +631,164 @@ class _$_OnStopTapped implements _OnStopTapped {
 abstract class _OnStopTapped implements AppAction {
   const factory _OnStopTapped() = _$_OnStopTapped;
 }
+
+/// @nodoc
+class _$PingActionTearOff {
+  const _$PingActionTearOff();
+
+  _OnFetched onFetched() {
+    return const _OnFetched();
+  }
+}
+
+/// @nodoc
+const $PingAction = _$PingActionTearOff();
+
+/// @nodoc
+mixin _$PingAction {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onFetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? onFetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onFetched,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnFetched value) onFetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_OnFetched value)? onFetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnFetched value)? onFetched,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PingActionCopyWith<$Res> {
+  factory $PingActionCopyWith(
+          PingAction value, $Res Function(PingAction) then) =
+      _$PingActionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$PingActionCopyWithImpl<$Res> implements $PingActionCopyWith<$Res> {
+  _$PingActionCopyWithImpl(this._value, this._then);
+
+  final PingAction _value;
+  // ignore: unused_field
+  final $Res Function(PingAction) _then;
+}
+
+/// @nodoc
+abstract class _$OnFetchedCopyWith<$Res> {
+  factory _$OnFetchedCopyWith(
+          _OnFetched value, $Res Function(_OnFetched) then) =
+      __$OnFetchedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OnFetchedCopyWithImpl<$Res> extends _$PingActionCopyWithImpl<$Res>
+    implements _$OnFetchedCopyWith<$Res> {
+  __$OnFetchedCopyWithImpl(_OnFetched _value, $Res Function(_OnFetched) _then)
+      : super(_value, (v) => _then(v as _OnFetched));
+
+  @override
+  _OnFetched get _value => super._value as _OnFetched;
+}
+
+/// @nodoc
+
+class _$_OnFetched implements _OnFetched {
+  const _$_OnFetched();
+
+  @override
+  String toString() {
+    return 'PingAction.onFetched()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _OnFetched);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onFetched,
+  }) {
+    return onFetched();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? onFetched,
+  }) {
+    return onFetched?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onFetched,
+    required TResult orElse(),
+  }) {
+    if (onFetched != null) {
+      return onFetched();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnFetched value) onFetched,
+  }) {
+    return onFetched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_OnFetched value)? onFetched,
+  }) {
+    return onFetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnFetched value)? onFetched,
+    required TResult orElse(),
+  }) {
+    if (onFetched != null) {
+      return onFetched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnFetched implements PingAction {
+  const factory _OnFetched() = _$_OnFetched;
+}

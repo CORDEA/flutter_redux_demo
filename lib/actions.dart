@@ -13,3 +13,8 @@ class AppAction with _$AppAction {
 
   const factory AppAction.onStopTapped() = _OnStopTapped;
 }
+
+@freezed
+class PingAction with _$PingAction {
+  const factory PingAction.onFetched() = _OnFetched;
+}
