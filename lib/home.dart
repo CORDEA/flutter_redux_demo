@@ -37,7 +37,7 @@ class _Body extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Slider.adaptive(
-              value: 0,
+              value: viewModel.duration,
               max: 600,
               onChanged: (v) => viewModel.onDurationChanged(v),
             ),
@@ -66,6 +66,10 @@ class _HomeViewModel {
   _HomeViewModel(this._store);
 
   final Store<AppState> _store;
+
+  String get url => _store.state.url;
+
+  double get duration => _store.state.duration.inSeconds.toDouble();
 
   void onUrlChanged(String url) {
     _store.dispatch(AppAction.onUrlChanged(url: url));
