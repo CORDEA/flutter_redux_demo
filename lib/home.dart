@@ -21,14 +21,20 @@ class Home extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
+  final _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _HomeViewModel>(
       converter: (store) => _HomeViewModel(store),
       builder: (context, viewModel) {
+        if (_controller.text != viewModel.url) {
+          _controller.text = viewModel.url;
+        }
         return Column(
           children: [
             TextField(
+              controller: _controller,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text('Url'),
