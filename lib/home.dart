@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
+import 'actions.dart';
 import 'state.dart';
 
 class Home extends StatelessWidget {
@@ -37,6 +38,7 @@ class _Body extends StatelessWidget {
             const SizedBox(height: 16),
             Slider.adaptive(
               value: 0,
+              max: 600,
               onChanged: (v) => viewModel.onDurationChanged(v),
             ),
             const SizedBox(height: 16),
@@ -65,11 +67,21 @@ class _HomeViewModel {
 
   final Store<AppState> _store;
 
-  void onUrlChanged(String url) {}
+  void onUrlChanged(String url) {
+    _store.dispatch(AppAction.onUrlChanged(url: url));
+  }
 
-  void onDurationChanged(double value) {}
+  void onDurationChanged(double value) {
+    _store.dispatch(AppAction.onDurationChanged(
+      Duration(seconds: value.toInt()),
+    ));
+  }
 
-  void onStartTapped() {}
+  void onStartTapped() {
+    _store.dispatch(const AppAction.onStartTapped());
+  }
 
-  void onStopTapped() {}
+  void onStopTapped() {
+    _store.dispatch(const AppAction.onStopTapped());
+  }
 }
